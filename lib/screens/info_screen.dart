@@ -16,7 +16,7 @@ class InfoScreen extends StatelessWidget {
                 fit: BoxFit.cover, // Ajusta a imagem sem distorcer
               ),
               Positioned(
-                bottom: -5,
+                bottom: -2,
                 left: 0,
                 right: 0,
                 child: ClipRect(
