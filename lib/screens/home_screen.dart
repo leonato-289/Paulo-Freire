@@ -16,9 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    InfoScreen(),
-    TeoriaScreen(),
-    MetodoScreen(),
+    InfoScreen(), 
+    TeoriaScreen(), 
+    MetodoScreen(), 
     LegadoScreen(),
   ];
 
@@ -34,21 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Ocultar a barra de status e configurar a cor dela
-    SystemChrome.setEnabledSystemUIOverlays([]); // Oculta a barra de status
+    // Configura a barra de status para ser branca e os ícones escuros
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Faz a barra de status transparente
+        statusBarColor: Colors.white, // Cor de fundo da barra de status
         statusBarIconBrightness: Brightness.dark, // Ícones escuros na barra de status
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    // Restaurar a barra de status quando a tela for descartada
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
-    super.dispose();
   }
 
   @override
@@ -60,16 +52,16 @@ class _HomeScreenState extends State<HomeScreen> {
           // Corpo principal que passa por baixo do topo
           Column(
             children: [
-              Expanded(
-                child: Center(
-                  child: _widgetOptions.elementAt(_selectedIndex),
-                ),
-              ),
+              Expanded(  
+                child: Center(  
+                  child: _widgetOptions.elementAt(_selectedIndex),  
+                ),  
+              ),  
             ],
           ),
           // Topo com ícone de raposa e botão de play
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 50.0), // Abaixando os ícones
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Align(
               alignment: Alignment.topCenter,
               child: Row(
