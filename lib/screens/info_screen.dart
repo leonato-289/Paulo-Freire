@@ -12,7 +12,7 @@ class InfoScreen extends StatelessWidget {
               Image.asset(
                 'assets/images/paulo.jpeg', // Caminho correto da sua imagem
                 width: double.infinity, // Faz a imagem ocupar toda a largura
-                height: 250, // Ajuste a altura conforme necessário
+                height: MediaQuery.of(context).size.height * 0.35, // Ajuste a altura conforme necessário para cobrir a área
                 fit: BoxFit.cover, // Ajusta a imagem sem distorcer
               ),
               Positioned(
@@ -31,7 +31,7 @@ class InfoScreen extends StatelessWidget {
                     },
                     blendMode: BlendMode.dstIn,
                     child: Container(
-                      height: 280, // Estica o efeito para cobrir a imagem e além
+                      height: 350, // Estica o efeito para cobrir a imagem e além
                       color: Colors.white,
                     ),
                   ),
