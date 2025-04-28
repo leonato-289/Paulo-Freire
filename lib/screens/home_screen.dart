@@ -5,6 +5,7 @@ import 'info_screen.dart';
 import 'teoria_screen.dart';
 import 'metodo_screen.dart';
 import 'legado_screen.dart';
+import 'package:flutter/services.dart'; // Import necessário para alterar a cor da barra de status
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -15,9 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    InfoScreen(), 
-    TeoriaScreen(), 
-    MetodoScreen(), 
+    InfoScreen(),
+    TeoriaScreen(),
+    MetodoScreen(),
     LegadoScreen(),
   ];
 
@@ -33,6 +34,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    // Ocultar a barra de status e configurar a cor dela
+    SystemChrome.setEnabledSystemUIOverlays([]); // Oculta a barra de status
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // Faz a barra de status transparente
+        statusBarIconBrightness: Brightness.dark, // Ícones escuros na barra de status
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    // Restaurar a barra de status quando a tela for descartada
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    super.dispose();
   }
 
   @override
@@ -44,16 +60,16 @@ class _HomeScreenState extends State<HomeScreen> {
           // Corpo principal que passa por baixo do topo
           Column(
             children: [
-              Expanded(  
-                child: Center(  
-                  child: _widgetOptions.elementAt(_selectedIndex),  
-                ),  
-              ),  
+              Expanded(
+                child: Center(
+                  child: _widgetOptions.elementAt(_selectedIndex),
+                ),
+              ),
             ],
           ),
           // Topo com ícone de raposa e botão de play
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 50.0), // Abaixando os ícones
             child: Align(
               alignment: Alignment.topCenter,
               child: Row(
@@ -97,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-
+      
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white, // Barra de navegação branca
