@@ -1,0 +1,22 @@
+name: freire_app
+description: App educacional inspirado nas ideias de Paulo Freire.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_nav_bar: ^5.0.0
+  line_icons: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/raposa.png
