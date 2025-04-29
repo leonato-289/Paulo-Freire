@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:flutter/services.dart';
 import 'info_screen.dart';
 import 'teoria_screen.dart';
 import 'metodo_screen.dart';
 import 'legado_screen.dart';
-import 'package:flutter/services.dart'; // Import necessário para alterar a cor da barra de status
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -16,9 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    InfoScreen(), 
-    TeoriaScreen(), 
-    MetodoScreen(), 
+    InfoScreen(),
+    TeoriaScreen(),
+    MetodoScreen(),
     LegadoScreen(),
   ];
 
@@ -29,144 +29,150 @@ class _HomeScreenState extends State<HomeScreen> {
     'Legado',
   ];
 
-  Color appNavBarColor = Colors.white;
-
   @override
   void initState() {
     super.initState();
-    // Configura a barra de status para ser branca e os ícones escuros
+
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: Colors.white, // Cor de fundo da barra de status
-        statusBarIconBrightness: Brightness.dark, // Ícones escuros na barra de status
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarIconBrightness: Brightness.dark,
+        systemNavigationBarDividerColor: Colors.transparent,
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          // Corpo principal que passa por baixo do topo
-          Column(
-            children: [
-              Expanded(  
-                child: Center(  
-                  child: _widgetOptions.elementAt(_selectedIndex),  
-                ),  
-              ),  
-            ],
-          ),
-          // Topo com ícone de raposa e botão de play
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Ícone da raposa
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 18,
-                    child: ClipOval(
-                      child: Image.asset(
-                        'assets/images/raposa.png',
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarIconBrightness: Brightness.dark,
+        systemNavigationBarDividerColor: Colors.transparent,
+      ),
+      child: Scaffold(
+        extendBody: true,
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: [
+            Column(
+              children: [
+                Expanded(
+                  child: Center(
+                    child: _widgetOptions.elementAt(_selectedIndex),
                   ),
-                  // Botão de play
-                  Material(
-                    color: Colors.orange.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(8),
-                    child: InkWell(
-                      onTap: () {
-                        // ação do play
-                      },
-                      borderRadius: BorderRadius.circular(8),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.play_arrow,
-                          color: Colors.orange,
-                          size: 28,
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 40.0, bottom: 8.0),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 18,
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/images/raposa.png',
+                          width: 30,
+                          height: 30,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    Material(
+                      color: Colors.orange.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(8),
+                      child: InkWell(
+                        onTap: () {},
+                        borderRadius: BorderRadius.circular(8),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.play_arrow,
+                            color: Colors.orange,
+                            size: 28,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ),
-        ],
-      ),
-      
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white, // Barra de navegação branca
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(25),
-            topRight: Radius.circular(25),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              spreadRadius: 4,
-              blurRadius: 8,
-              offset: Offset(0, 6),
             ),
           ],
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-          child: GNav(
-            rippleColor: Colors.grey[300]!,
-            hoverColor: Colors.grey[100]!,
-            gap: 8,
-            activeColor: Colors.orange,
-            iconSize: 24,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-            duration: Duration(milliseconds: 400),
-            tabBackgroundColor: Colors.orange.withOpacity(0.1),
-            color: Colors.orange,
-            backgroundColor: Colors.white, // Barra de navegação com fundo branco
-            tabs: [
-              GButton(
-                icon: LineIcons.infoCircle,
-                text: 'Info',
-                iconColor: Colors.orange,
-                textColor: Colors.orange,
-              ),
-              GButton(
-                icon: LineIcons.bookmark,
-                text: 'Teoria',
-                iconColor: Colors.orange,
-                textColor: Colors.orange,
-              ),
-              GButton(
-                icon: LineIcons.edit,
-                text: 'Método',
-                iconColor: Colors.orange,
-                textColor: Colors.orange,
-              ),
-              GButton(
-                icon: LineIcons.briefcase,
-                text: 'Legado',
-                iconColor: Colors.orange,
-                textColor: Colors.orange,
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                spreadRadius: 4,
+                blurRadius: 8,
+                offset: Offset(0, 6),
               ),
             ],
-            selectedIndex: _selectedIndex,
-            onTabChange: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.grey[300]!,
+              hoverColor: Colors.grey[100]!,
+              gap: 8,
+              activeColor: Colors.orange,
+              iconSize: 24,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: Duration(milliseconds: 400),
+              tabBackgroundColor: Colors.orange.withOpacity(0.1),
+              color: Colors.orange,
+              backgroundColor: Colors.white,
+              tabs: [
+                GButton(
+                  icon: LineIcons.infoCircle,
+                  text: 'Info',
+                  iconColor: Colors.orange,
+                  textColor: Colors.orange,
+                ),
+                GButton(
+                  icon: LineIcons.bookmark,
+                  text: 'Teoria',
+                  iconColor: Colors.orange,
+                  textColor: Colors.orange,
+                ),
+                GButton(
+                  icon: LineIcons.edit,
+                  text: 'Método',
+                  iconColor: Colors.orange,
+                  textColor: Colors.orange,
+                ),
+                GButton(
+                  icon: LineIcons.briefcase,
+                  text: 'Legado',
+                  iconColor: Colors.orange,
+                  textColor: Colors.orange,
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+            ),
           ),
         ),
       ),
