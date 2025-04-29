@@ -121,7 +121,7 @@ class InfoScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Fontes:\n1. Freire, P. (1970). Pedagogia do Oprimido. Rio de Janeiro: Paz e Terra.\n2. Freire, P. (1967). Educação como Prática da Liberdade. Rio de Janeiro: Paz e Terra.\n3. Freire, P. (1994). Pedagogia da Esperança: um reencontro com a Pedagogia do Oprimido. Rio de Janeiro: Paz e Terra.\n4. Ministério da Educação do Brasil (2010). Paulo Freire e o impacto de sua pedagogia.\n .\n . \n .',
+                    'Fontes:\n1. Freire, P. (1970). Pedagogia do Oprimido. Rio de Janeiro: Paz e Terra.\n2. Freire, P. (1967). Educação como Prática da Liberdade. Rio de Janeiro: Paz e Terra.\n3. Freire, P. (1994). Pedagogia da Esperança: um reencontro com a Pedagogia do Oprimido. Rio de Janeiro: Paz e Terra.\n4. Ministério da Educação do Brasil (2010). Paulo Freire e o impacto de sua pedagogia.\n 1.\n 2. \n 2.',
                     style: TextStyle(
                       fontSize: 14,
                       height: 1.4,
