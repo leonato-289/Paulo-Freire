@@ -45,9 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
       value: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.white,
         systemNavigationBarIconBrightness: Brightness.dark,
-        systemNavigationBarDividerColor: Colors.transparent,
+        systemNavigationBarDividerColor: Colors.white,
       ),
       child: Scaffold(
         extendBody: true,
@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 60.0, bottom: 8.0),
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 45.0, bottom: 8.0),
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Row(
