@@ -19,7 +19,7 @@ class TeoriaScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'A Pedagogia do Oprimido é a teoria mais conhecida de Paulo Freire. Ela propõe uma nova forma de educar, baseada no diálogo entre educador e educando, permitindo a construção conjunta do conhecimento.',
+              'A teoria de Paulo Freire revolucionou a educação ao criticar o modelo "bancário", onde o conhecimento é depositado passivamente nos alunos. Ele propôs uma educação dialógica, baseada no diálogo horizontal entre educador e educando, em que ambos constroem conhecimento ativamente. O cerne de sua filosofia é a conscientização, o processo pelo qual os indivíduos desenvolvem uma compreensão crítica da sua realidade social e das estruturas de opressão que os afetam. Essa conscientização, aliada à práxis (a união entre reflexão e ação), capacita os oprimidos a se tornarem sujeitos da sua própria história e a buscarem a transformação social.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,

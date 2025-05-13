@@ -19,7 +19,7 @@ class MetodoScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'O método pedagógico de Paulo Freire é caracterizado pelo diálogo. Ele acredita que a educação deve ser um processo de transformação, onde os alunos não são receptores passivos de conhecimento, mas participantes ativos no processo de aprendizagem.',
+              'O método de Paulo Freire é centrado na investigação temática da realidade dos educandos, buscando identificar os "temas geradores" - preocupações, contradições e esperanças significativas para suas vidas. A partir desses temas, desenvolve-se um processo de codificação e decodificação, onde a realidade é representada visualmente e analisada criticamente em diálogo. Esse processo leva à problematização da situação vivida, estimulando a reflexão sobre as causas da opressão e as possibilidades de transformação. A culminação do método é a conscientização e a práxis, a ação engajada na realidade para modificá-la, unindo reflexão crítica e intervenção transformadora.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,
